@@ -55,7 +55,7 @@ public class DefaultObjectFactory implements ObjectFactory, Serializable {
   }
 
   /**
-   * 创建类的实例
+   * 创建类的实例,instantiateClass方法能够通过反射找到与参数匹配的构造方法，然后基于反射调用该构造方法生成一个对象
    * @param type 要创建实例的类
    * @param constructorArgTypes 构造方法入参类型
    * @param constructorArgs 构造方法入参
@@ -108,7 +108,9 @@ public class DefaultObjectFactory implements ObjectFactory, Serializable {
     }
   }
 
-  // 判断要创建的目标对象的类型，即如果传入的是接口则给出它的一种实现
+  /**
+   *   判断要创建的目标对象的类型，即如果传入的是接口则给出它的一种实现resolveInterface方法。 当传入的目标类型是一个接口时，该方法可以给出一个符合该接 口的实现
+    */
   protected Class<?> resolveInterface(Class<?> type) {
     Class<?> classToCreate;
     if (type == List.class || type == Collection.class || type == Iterable.class) {

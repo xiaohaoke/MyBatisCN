@@ -31,6 +31,7 @@ import java.util.Arrays;
 public class TypeParameterResolver {
 
     /**
+     * 解析属性的泛型
      * @return The field type as {@link Type}. If it has type parameters in the declaration,<br>
      *         they will be resolved to the actual runtime {@link Type}s.
      */
@@ -43,6 +44,7 @@ public class TypeParameterResolver {
     }
 
     /**
+     * 解析方法的返回值的泛型
      * @return The return type of the method as {@link Type}. If it has type parameters in the declaration,<br>
      *         they will be resolved to the actual runtime {@link Type}s.
      */
@@ -58,7 +60,7 @@ public class TypeParameterResolver {
      */
 
     /**
-     * 解析方法入参
+     * 解析方法输入参数的泛型
      * @param method 目标方法
      * @param srcType 目标方法所属的类
      * @return 解析结果
@@ -79,9 +81,9 @@ public class TypeParameterResolver {
 
     /**
      * 解析变量的实际类型
-     * @param type 变量的类型
-     * @param srcType 变量所属于的类
-     * @param declaringClass 定义变量的类
+     * @param type 变量的类型，指要分析的字段或者参数的类型
+     * @param srcType 变量所属于的类，指要分析的字段或者参数所属的类
+     * @param declaringClass 定义变量的类，指定义要分析的字段或者参数的类
      * @return 解析结果
      */
     private static Type resolveType(Type type, Type srcType, Class<?> declaringClass) {

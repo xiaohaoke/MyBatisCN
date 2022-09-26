@@ -27,6 +27,7 @@ import org.apache.ibatis.reflection.property.PropertyTokenizer;
  */
 public abstract class BaseWrapper implements ObjectWrapper {
 
+
   // 获取对象属性时，没有参数传入时，就传入它
   protected static final Object[] NO_ARGUMENTS = new Object[0];
 

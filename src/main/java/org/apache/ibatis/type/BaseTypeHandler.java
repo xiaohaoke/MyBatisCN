@@ -109,6 +109,17 @@ public abstract class BaseTypeHandler<T> extends TypeReference<T> implements Typ
     }
   }
 
+
+  /**
+   *BaseTypeHandler＜T＞交给具体的类型处理器实现的抽象方 法一共只有四个。在每个类型处理器都需要实现这四个方法。
+   *
+   * void setNonNullParameter（PreparedStatement，int，T，Jdbc Type）：向 PreparedStatement对象中的指定变量位置写入一个不 为 null的值；
+   *
+   * T getNullableResult（ResultSet， String）：从 ResultSet 中 按照字段名读出一个可能为null的数据； · T getNullableResult（ResultSet，int）：从 ResultSet 中按照 字段编号读出一个可能为null的数据；
+   *
+   * T getNullableResult（CallableStatement，int）：从 CallableS tatement中按照字段编号读出一个可能为 null的数据。
+   */
+
   public abstract void setNonNullParameter(PreparedStatement ps, int i, T parameter, JdbcType jdbcType) throws SQLException;
 
   /**
